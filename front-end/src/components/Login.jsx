@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, TextField, Button, Typography, Paper } from '@material-ui/core';
+import { auth } from '../firebase/firebase';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,15 +34,24 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     // Validate input fields
     if (!email || !password) {
       setError('Please fill in all fields.');
       return;
     }
 
-    // Add your login logic here
-    console.log('Logging in with:', email, password);
+    try {
+      // Log in the user with email and password
+      await auth.signInWithEmailAndPassword(email, password);
+      console.log('User logged in:', email);
+      // Clear input fields and error message
+      setEmail('');
+      setPassword('');
+      setError('');
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (

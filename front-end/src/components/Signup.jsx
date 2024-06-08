@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, TextField, Button, Typography, Paper, FormControlLabel, Checkbox } from '@material-ui/core';
+import { auth, database } from '../firebase/firebase';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(4),
     marginLeft: theme.spacing(10),
     borderRadius: theme.spacing(2),
-    marginBottom:theme.spacing(10),
-    marginTop:theme.spacing(10),
+    marginBottom: theme.spacing(10),
+    marginTop: theme.spacing(10),
     boxShadow: theme.shadows[3],
     backgroundColor: theme.palette.background.paper,
     maxWidth: 500,
@@ -28,6 +29,14 @@ const useStyles = makeStyles((theme) => ({
   terms: {
     marginTop: theme.spacing(2),
   },
+  successMessage: {
+    marginBottom: theme.spacing(2),
+    padding: theme.spacing(1),
+    backgroundColor: '#4caf50',
+    color: '#fff',
+    borderRadius: theme.spacing(1),
+    textAlign: 'center',
+  },
 }));
 
 const Signup = () => {
@@ -39,41 +48,68 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
-  const handleSignUp = () => {
-    // Validate input fields
-    if (!email || !username || !phoneNumber || !password || !confirmPassword) {
-      setError('Please fill in all fields.');
-      return;
+  const handleSignUp = async () => {
+    // Reset any previous error or success messages
+    setError('');
+    setSuccessMessage('');
+
+    // Your existing sign-up logic
+    try {
+      // Check if the email already exists
+      const existingUser = await database.ref('users').orderByChild('email').equalTo(email).once('value');
+      if (existingUser.exists()) {
+        // Update the existing user's data
+        existingUser.forEach((child) => {
+          const userId = child.key;
+          database.ref('users/' + userId).update({
+            username,
+            phoneNumber,
+            email,
+          });
+        });
+  
+        setSuccessMessage('User data updated successfully!');
+      } else {
+        // Create new user with email and password
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        const user = userCredential.user;
+  
+        // Save additional user information to the database
+        await database.ref('users/' + user.uid).set({
+          username,
+          phoneNumber,
+          email,
+        });
+  
+        setSuccessMessage('Successfully signed up!');
+      }
+      
+      // Clear input fields
+      setEmail('');
+      setUsername('');
+      setPhoneNumber('');
+      setPassword('');
+      setConfirmPassword('');
+      setAgreeTerms(false);
+
+      // Log success message
+      console.log('User signed up and data saved:', email, username, phoneNumber);
+    } catch (error) {
+      setError(error.message);
     }
-
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setError('Please enter a valid email address.');
-      return;
-    }
-
-    // Validate password match
-    if (password !== confirmPassword) {
-      setError('Passwords do not match.');
-      return;
-    }
-
-    // Validate terms agreement
-    if (!agreeTerms) {
-      setError('Please agree to the terms and conditions.');
-      return;
-    }
-
-    // Add your signup logic here
-    console.log('Signing up with:', email, username, phoneNumber, password);
   };
 
   return (
     <div className={classes.root}>
       <Grid container justify="center">
         <Grid item xs={12} sm={8} md={6}>
+          {successMessage && (
+            <Typography variant="body2" className={classes.successMessage}>
+              {successMessage}
+            </Typography>
+          )}
           <Paper className={classes.paper}>
             <form className={classes.form} noValidate autoComplete="off">
               <Typography variant="h4" align="center" gutterBottom>
@@ -127,13 +163,17 @@ const Signup = () => {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
-             <FormControlLabel
-  control={<Checkbox checked={agreeTerms} onChange={(e) => setAgreeTerms(e.target.checked)} />}
-  label="I consent to the sharing of my email address."
-  className={classes.terms}
-  style={{ display: 'flex', alignItems: 'center' }}
-/>
-
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={agreeTerms}
+                    onChange={(e) => setAgreeTerms(e.target.checked)}
+                  />
+                }
+                label="I consent to the sharing of my email address."
+                className={classes.terms}
+                style={{ display: 'flex', alignItems: 'center' }}
+              />
               {error && (
                 <Typography variant="body2" color="error" align="center">
                   {error}
