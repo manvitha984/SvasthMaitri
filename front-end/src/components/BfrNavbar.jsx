@@ -1,5 +1,6 @@
 import React from 'react';
-import './BfrNavbar.css'; // Import the CSS file
+import { Link } from 'react-router-dom'; 
+import './BfrNavbar.css'; 
 
 function BfrNavbar() {
     const showMenu = () => {
@@ -18,9 +19,9 @@ function BfrNavbar() {
                 <div className="nav-links" id="navLinks">
                     <i className="fa fa-times" onClick={hideMenu}></i>
                     <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Sign Up</a></li>
-                        <li><a href="">Login</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/signup">Sign Up</Link></li>
+                        <li><Link to="/login">Login</Link></li>
                     </ul>
                 </div>
                 <i className="fa fa-bars" onClick={showMenu}></i>

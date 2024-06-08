@@ -7,7 +7,7 @@ function BfrBody() {
     <div>
         <section className="header">
             <div className="text-box">
-                <h2 style={{fontSize:'50px', marginLeft:'190px'}}>Building Bridges to Health</h2>
+                <h2 style={{fontSize:'50px', marginLeft:'150px'}}>Building Bridges to Health</h2>
                 <p style={{fontSize:'30px', marginLeft:'150px'}}>Donate for a Brighter Future</p>
                 <a href="signup.php" className="hero-btn" style={{fontWeight:' bolder', fontSize: '25px' ,marginLeft:'150px'}}>Get Started</a>
             </div>
@@ -19,29 +19,29 @@ function BfrBody() {
         <div className="row" style={{marginBottom:'50px' ,marginTop:'30px'}}>
             <div className="course-col">
                 <img src="../imgs/capsules-solid.svg" style={{height: '40px ', paddingTop: '15px'}} />
-                <p style={{fontSize: '25px', marginTop:'30px'}}>Medicine donation</p>
+                <p style={{fontSize: '20px', marginTop:'30px'}}>Medicine donation</p>
                 <p style={{fontSize: '15px'}}>Tailored resources and guidance to facilitate the donation process and support individuals in contributing surplus or unexpired medicines to those in need.</p>
             </div>
             <div className="course-col">
                 <img src="../imgs/wheelchair-solid.svg" style={{height: '40px',paddingTop: '15px'}} />
-                <p style={{fontSize: '25px', marginTop:'30px'}}>Medical Equipment Donation</p>
+                <p style={{fontSize: '20px', marginTop:'30px'}}>Medical Equipment Donation</p>
                 <p style={{fontSize:' 15px'}}>Facilitating the donation of medical equipment and ensuring that individuals have access to resources for improving healthcare access.</p>
             </div>
             <div className="course-col">
                 <img src="../imgs/hand-holding-droplet-solid.svg" style={{height: '40px', paddingTop: '15px' }}/>
-                <p style={{fontSize: '25px', marginTop:'30px'}}>Blood Donation</p>
+                <p style={{fontSize: '20px', marginTop:'30px'}}>Blood Donation</p>
                 <p style={{fontSize: '15px'}}>Empowering individuals to save lives through blood donation and providing access to resources for ensuring a healthy and sustainable blood supply.</p>
             </div>
         </div>
         <div className="row" style={{justifyContent: 'center'}}>
             <div className="course-col">
                 <img src="../imgs/people-group-solid.svg" style={{height: '40px', paddingTop: '15px'}} />
-                <p style={{fontSize: '25px', marginTop:'30px'}}>Community Support Page</p>
+                <p style={{fontSize: '20px', marginTop:'30px'}}>Community Support Page</p>
                 <p style={{fontSize: '15px'}}>Fostering a supportive community environment where donors and recipients can connect, share experiences, aimed at addressing healthcare needs and promoting donation awareness.</p>
             </div>
             <div className="course-col">
                 <img src="../imgs/language-solid.svg" style={{height: '40px',paddingTop: '15px'}} />
-                <p style={{fontSize: '25px', marginTop:'30px'}}>Language Diversity Support</p>
+                <p style={{fontSize: '20px', marginTop:'30px'}}>Language Diversity Support</p>
                 <p style={{fontSize: '15px'}}>Empowering women worldwide with multilingual accessibility, fostering a global community of inclusion and support.</p>
 
             </div>
@@ -68,7 +68,7 @@ function BfrBody() {
                         </svg>
                         
                     <h3 style={{marginBottom:'20px',fontSize: '25px'}}>Christine Berkley</h3>
-                    <p style={{fontSize:'20px'}}>The seamless integration of medical donation, equipment support, and blood donation services under one platform is remarkable. As someone passionate about giving back to my community, I appreciate the ease of access and the opportunity to make a difference in multiple ways. </p>
+                    <p style={{fontSize:'18px'}}>The seamless integration of medical donation, equipment support, and blood donation services under one platform is remarkable. As someone passionate about giving back to my community, I appreciate the ease of access and the opportunity to make a difference in multiple ways. </p>
                 </div>
             </div>
             <div className="testimonial-col">
@@ -83,7 +83,7 @@ function BfrBody() {
                         </svg>
 
                         <h3 style={{marginBottom:'20px',fontSize:' 25px'}}>Debbey Lane</h3>
-                        <p style={{fontSize:'20px'}}>The multilingual support feature is a game-changer! As someone whose first language isn't English, I appreciate being able to access all the forums in my native language. It truly makes me feel included and valued.</p>
+                        <p style={{fontSize:'18px'}}>The multilingual support feature is a game-changer! As someone whose first language isn't English, I appreciate being able to access all the forums in my native language. It truly makes me feel included and valued.</p>
                 </div>
             </div>
         </div>
@@ -101,7 +101,7 @@ function BfrBody() {
                         </svg>
                         
                     <h3 style={{marginBottom:'20px',fontSize: '25px'}}>Natalia Vision</h3>
-                    <p style={{fontSize:'20px'}}>I cannot overstate the impact this website has had on me. Its commitment to facilitating medical donation, providing essential medical equipment, and promoting blood donation drives is nothing short of inspiring. The user-friendly interface make it easy for individuals.</p>
+                    <p style={{fontSize:'18px'}}>I cannot overstate the impact this website has had on me. Its commitment to facilitating medical donation, providing essential medical equipment, and promoting blood donation drives is nothing short of inspiring. The user-friendly interface make it easy for individuals.</p>
                 </div>
             </div>
             <div className="testimonial-col">
@@ -116,7 +116,7 @@ function BfrBody() {
                         </svg>
 
                         <h3 style={{marginBottom:'20px',fontSize: '25px'}}>Jenny Wilson</h3>
-                        <p style={{fontSize:'20px'}}>I cannot overstate the impact this website has had on me. Its commitment to facilitating medical donation, providing essential medical equipment, and promoting blood donation drives is nothing short of inspiring. The user-friendly interface make it easy for individuals.</p>
+                        <p style={{fontSize:'18px'}}>I cannot overstate the impact this website has had on me. Its commitment to facilitating medical donation, providing essential medical equipment, and promoting blood donation drives is nothing short of inspiring. The user-friendly interface make it easy for individuals.</p>
                 </div>
             </div>
         </div>
