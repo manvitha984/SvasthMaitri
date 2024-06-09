@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import BfrNavbar from "./components/BfrNavbar";
 import BfrBody from "./components/BfrBody";
@@ -13,6 +8,11 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import AftrBody from "./components/AftrBody";
 import AftrNavbar from "./components/AftrNavbar";
+import Profile from "./components/Profile";
+import Donate from "./components/Donate";
+import MedForm from "./components/MedForm";
+import MedEquipment from "./components/MedEquipment";
+import BloodDonation from "./components/BloodDonation";
 
 import { auth } from "./firebase/firebase";
 
@@ -63,7 +63,14 @@ function App() {
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Login" element={<Login handleLogin={handleLogin} />} />
           {isLoggedIn ? (
-            <Route path="/AftrBody" element={<AftrBody />} />
+            <>
+              <Route path="/AftrBody" element={<AftrBody />} />
+              {<Route path="/Profile" element={<Profile />} /> }
+              <Route path="/Donate" element={<Donate />} />
+              <Route path="/MedForm" element={<MedForm />} />
+              <Route path="/MedEquipment" element={<MedEquipment />} />
+              <Route path="/BloodDonation" element={<BloodDonation/>} />
+            </>
           ) : null}
         </Routes>
         <Footer />

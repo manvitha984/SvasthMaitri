@@ -31,11 +31,11 @@ function AftrNavbar() {
                     <i className="fa fa-times" onClick={hideMenu}></i>
                     <ul>
                         <li><Link to="/aftrbody">Home</Link></li>
-                        <li><Link to="/">Donate</Link></li>
+                        <li><Link to="/donate">Donate</Link></li>
                         <li><Link to="/">Donations</Link></li>
                         <li><Link to="/">Community</Link></li>
                         <li><Link to="/">Articles</Link></li>
-                        <li><Link to="/">Profile</Link></li>
+                        <li><Link to="/Profile">Profile</Link></li>
                         <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
 
                     </ul>

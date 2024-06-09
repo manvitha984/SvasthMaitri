@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, TextField, Button, Typography, Paper, FormControlLabel, Checkbox } from '@material-ui/core';
-import { auth, database } from '../firebase/firebase';
+import { auth, database} from '../firebase/firebase';
 import { Navigate } from 'react-router-dom'; // Import Navigate
 
 const useStyles = makeStyles((theme) => ({
