@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './MedForm.css';
 
 function MedForm() {
-  // State to track form input values
   const [formData, setFormData] = useState({
     medicineName: '',
     quantity: '',
@@ -11,7 +10,6 @@ function MedForm() {
     expiryDate: ''
   });
 
-  // Function to handle form input changes
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -20,11 +18,9 @@ function MedForm() {
     });
   };
 
-  // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      // Send form data to backend server
       const response = await fetch('http://localhost:5000/submit-medicine', {
         method: 'POST',
         headers: {
@@ -33,10 +29,8 @@ function MedForm() {
         body: JSON.stringify(formData)
       });
       if (response.ok) {
-        // Handle successful form submission
         console.log('Donation submitted successfully.');
       } else {
-        // Handle failed form submission
         console.error('Failed to submit donation.');
       }
     } catch (error) {

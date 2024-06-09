@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, TextField, Button, Typography, Paper, FormControlLabel, Checkbox } from '@material-ui/core';
 import { auth, database} from '../firebase/firebase';
-import { Navigate } from 'react-router-dom'; // Import Navigate
+import { Navigate } from 'react-router-dom'; 
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,13 +50,13 @@ const Signup = () => {
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const [redirectToLogin, setRedirectToLogin] = useState(false); // State to handle redirection
+  const [redirectToLogin, setRedirectToLogin] = useState(false);
 
   const handleSignUp = async () => {
     setError('');
     setSuccessMessage('');
 
-    // Validate form inputs
+    
     if (password !== confirmPassword) {
       setError('Passwords do not match.');
       return;
@@ -66,7 +66,7 @@ const Signup = () => {
       const userCredential = await auth.createUserWithEmailAndPassword(email, password);
       const user = userCredential.user;
 
-      // Write additional user information to the database
+      
       await database.ref('users/' + user.uid).set({
         username,
         phoneNumber,
@@ -83,7 +83,7 @@ const Signup = () => {
 
       console.log('User signed up and data saved:', email, username, phoneNumber);
 
-      // Redirect to login page
+      
       setRedirectToLogin(true);
     } catch (error) {
       setError(error.message);
@@ -91,7 +91,7 @@ const Signup = () => {
   };
 
   if (redirectToLogin) {
-    return <Navigate to="/login" />; // Redirect to login page after successful sign up
+    return <Navigate to="/login" />;
   }
 
   return (

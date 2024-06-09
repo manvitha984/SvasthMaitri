@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, TextField, Button, Typography, Paper } from '@material-ui/core';
 import { auth } from '../firebase/firebase';
-import { Navigate } from 'react-router-dom'; // Import Navigate from react-router-dom
+import { Navigate } from 'react-router-dom'; 
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,10 +34,9 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
   useEffect(() => {
-    // Check if user is already logged in
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
         setIsLoggedIn(true);
@@ -47,18 +46,15 @@ const Login = () => {
   }, []);
 
   const handleLoginClick = async () => {
-    // Validate input fields
     if (!email || !password) {
       setError('Please fill in all fields.');
       return;
     }
 
     try {
-      // Log in the user with email and password
       await auth.signInWithEmailAndPassword(email, password);
       console.log('User logged in:', email);
-      setIsLoggedIn(true); // Set login state to true
-      // Clear input fields and error message
+      setIsLoggedIn(true); 
       setEmail('');
       setPassword('');
       setError('');
@@ -67,7 +63,6 @@ const Login = () => {
     }
   };
 
-  // Redirect to AftrBody if user is already logged in
   if (isLoggedIn) {
     return <Navigate to="/aftrbody" />;
   }
@@ -111,7 +106,7 @@ const Login = () => {
                 color="primary"
                 fullWidth
                 className={classes.button}
-                onClick={handleLoginClick} // Call handleLoginClick function on button click
+                onClick={handleLoginClick} 
               >
                 Login
               </Button>

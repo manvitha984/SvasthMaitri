@@ -1,4 +1,3 @@
-// src/firebase/firebase.js
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/database';
@@ -14,7 +13,6 @@ const firebaseConfig = {
     appId: "1:740156489180:web:90584ca68310c539b2e319"
 };
 
-// Initialize Firebase
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }

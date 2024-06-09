@@ -3,17 +3,6 @@ import './BfrBody.css';
 import { useEffect } from 'react';
 
 const AftrBody= () => {
-//   useEffect(() => {
-//     const currentUser = getCurrentUser();
-
-//     if (currentUser) {
-//       if (currentUser.role === 'admin') {
-//         document.getElementById('reviews').contentEditable = true;
-//       } else {
-//         document.getElementById('reviews').contentEditable = false;
-//       }
-//     }
-//   }, []);
 
   return (
     <div>

@@ -4,8 +4,7 @@ import './Commstyle.css'
 
 function CommunityPage() {
     const addPost = (event) => {
-        // Add post logic here
-        event.preventDefault(); // Prevents the form from submitting normally
+        event.preventDefault();
     };
 
     return (
@@ -40,7 +39,6 @@ function CommunityPage() {
             <section className="blogs" id="new-post-section">
                 <br /><br />
                 <div className="blog" id="new-post">
-                    {/* New post content will be inserted here */}
                 </div>
                 <br />
             </section>

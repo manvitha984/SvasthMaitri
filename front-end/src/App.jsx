@@ -24,7 +24,6 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Check if user is already logged in
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         setIsLoggedIn(true);
@@ -33,17 +32,14 @@ function App() {
       }
     });
 
-    // Unsubscribe from Firebase listener on component unmount
     return () => unsubscribe();
   }, []);
 
   const handleLogin = () => {
-    // Perform login logic
     setIsLoggedIn(true);
   };
 
   const handleLogout = () => {
-    // Perform logout logic
     auth
       .signOut()
       .then(() => {

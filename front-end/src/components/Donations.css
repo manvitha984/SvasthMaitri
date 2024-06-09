@@ -7,22 +7,17 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-/* Style for the title of the donation card */
 .donation-card h1 {
     font-size: 32px;
     color: #333;
-    text-align: center; /* Center the headings */
+    text-align: center; 
 }
 
-
-
-/* Style for specific details within the donation */
 .donation-details p {
     margin: 5px 0;
     color: #666;
 }
 
-/* Style for the "Contact Now" button */
 .button {
     background-color: #007bff;
     color: #fff;
@@ -40,7 +35,6 @@
     background-color: #0056b3;
 }
 
-/* Style for the email pop-up */
 .email-popup {
     position: fixed;
     top: 50%;
@@ -74,9 +68,6 @@
 .email-popup button:hover {
     background-color: #0056b3;
 }
-
-/* Additional styles for overall layout */
-
 
 .container {
     max-width: 1200px;

@@ -64,7 +64,6 @@ function Donations() {
     fetchBloodDonations();
   }, []);
 
-  // Filter donations based on search query
   const filteredMedicineDonations = medicineDonations.filter(donation =>
     donation.medicineName.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -89,7 +88,7 @@ function Donations() {
             marginTop: '40px',
             marginLeft: '35%',
             marginBottom: '10px',
-            width: '35%', // Adjust the width as needed
+            width: '35%',
             padding: '10px',
             borderRadius: '5px',
             border: '1px solid #ccc',

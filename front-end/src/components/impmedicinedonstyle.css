@@ -49,20 +49,20 @@
     margin: 0 auto;
     max-width: 100%;
     height: auto;
-    width: 90%; /* Increased width of the image */
+    width: 90%; 
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .icontainer ul {
-    padding-left: 20px; /* Add padding to the left of the list */
+    padding-left: 20px;
 }
 
 .icontainer li {
-    font-size: 18px; /* Set consistent font size */
+    font-size: 18px; 
     line-height: 1.6;
-    margin-bottom: 15px; /* Adjusted margin bottom */
-    padding-left: 15px; /* Add padding to the left of each list item */
+    margin-bottom: 15px;
+    padding-left: 15px;
 }
 
 .icontainer p,
@@ -70,9 +70,9 @@
 .icontainer li,
 .icontainer h1,
 .icontainer h3 {
-    font-size: 18px; /* Set consistent font size */
+    font-size: 18px; 
     line-height: 1.6;
-    margin-bottom: 20px; /* Increased margin bottom */
+    margin-bottom: 20px; 
 }
 
 .icontainer h1,

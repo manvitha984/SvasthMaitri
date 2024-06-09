@@ -40,8 +40,8 @@
 
 .dcard-img-left,
 .dcard-img-right {
-    width: 50%; /* Set maximum width to 50% of the container */
-    height: 10%; /* Maintain aspect ratio */
+    width: 50%;
+    height: 10%; 
 }
 
 .dcard {
@@ -55,9 +55,9 @@
   
   .dcard-img-left,
   .dcard-img-right {
-    width: 50%; /* Set maximum width to 50% of the container */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px 0 0 10px; /* Rounded corners only on the left side */
+    width: 50%; 
+    height: auto;
+    border-radius: 10px 0 0 10px; 
   }
   
   .dcard-body {
