@@ -1,0 +1,85 @@
+.donsec {
+    margin: 40px;
+    border: 2px solid #007bff; 
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+/* Style for the title of the donation card */
+.donation-card h1 {
+    font-size: 32px;
+    color: #333;
+    text-align: center; /* Center the headings */
+}
+
+
+
+/* Style for specific details within the donation */
+.donation-details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Style for the "Contact Now" button */
+.button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the email pop-up */
+.email-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 300px;
+    z-index: 9999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.email-popup p {
+    margin: 5px 0;
+    color: #333;
+}
+
+.email-popup button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.email-popup button:hover {
+    background-color: #0056b3;
+}
+
+/* Additional styles for overall layout */
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}

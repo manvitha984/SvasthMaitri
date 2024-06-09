@@ -1,0 +1,22 @@
+.abheader {
+    min-height: 70vh;
+    background-image: url('../imgs/bg.jpeg.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.abheader, .cta,
+.sub-header {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('../imgs/bg.jpeg');
+}
+
+.abheader, .light-mode .sub-header {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('../imgs/bg.jpeg');
+}
+
+.abtext-box{
+    font-size: 20px;
+    text-align: center;
+    padding-top: 200px;
+}
+

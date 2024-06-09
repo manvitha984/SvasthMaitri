@@ -9,12 +9,16 @@ import Login from "./components/Login";
 import AftrBody from "./components/AftrBody";
 import AftrNavbar from "./components/AftrNavbar";
 import Profile from "./components/Profile";
-import Donate from "./components/Donate";
 import MedForm from "./components/MedForm";
 import MedEquipment from "./components/MedEquipment";
 import BloodDonation from "./components/BloodDonation";
-
+import Donations from "./components/Donations";
+import Articlespage from "./components/Articlespage";
+import Translate from "./components/Translate";
+import Donate from "./components/Donate";
+import CommunityPage from "./components/CommunityPage";
 import { auth } from "./firebase/firebase";
+import ImpMedicineDon from "./components/ImpMedicineDon";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -65,14 +69,19 @@ function App() {
           {isLoggedIn ? (
             <>
               <Route path="/AftrBody" element={<AftrBody />} />
-              {<Route path="/Profile" element={<Profile />} /> }
-              <Route path="/Donate" element={<Donate />} />
+              <Route path="/Profile" element={<Profile />} />
               <Route path="/MedForm" element={<MedForm />} />
               <Route path="/MedEquipment" element={<MedEquipment />} />
               <Route path="/BloodDonation" element={<BloodDonation/>} />
+              <Route path="/Donations" element={<Donations/>} />
+              <Route path="/Articlespage" element={<Articlespage />} />
+              <Route path="/CommunityPage" element={<CommunityPage />} /> 
+              <Route path="/Donate" element={<Donate />} />
+              <Route path="/ImpMedicineDon" element={<ImpMedicineDon />} />
             </>
           ) : null}
         </Routes>
+        <Translate />
         <Footer />
       </div>
     </Router>

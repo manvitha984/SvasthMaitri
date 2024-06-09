@@ -6,7 +6,6 @@ import { auth } from '../firebase/firebase';
 const handleLogout = async () => {
     try {
       await auth.signOut();
-      // Additional logic after successful logout (e.g., redirecting to the login page)
     } catch (error) {
       console.error('Error logging out:', error);
     }
@@ -31,10 +30,10 @@ function AftrNavbar() {
                     <i className="fa fa-times" onClick={hideMenu}></i>
                     <ul>
                         <li><Link to="/aftrbody">Home</Link></li>
-                        <li><Link to="/donate">Donate</Link></li>
-                        <li><Link to="/">Donations</Link></li>
-                        <li><Link to="/">Community</Link></li>
-                        <li><Link to="/">Articles</Link></li>
+                        <li><Link to="/Donate">Donate</Link></li>
+                        <li><Link to="/Donations">Donations</Link></li>
+                        <li><Link to="/CommunityPage">Community</Link></li>
+                        <li><Link to="/Articlespage">Articles</Link></li>
                         <li><Link to="/Profile">Profile</Link></li>
                         <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
 

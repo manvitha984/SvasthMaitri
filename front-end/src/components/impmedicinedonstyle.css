@@ -1,0 +1,81 @@
+/* * {  
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    animation:none;
+    transition:none;
+} */
+
+.iheader{
+    min-height: 70vh;
+}
+.iheader,
+.cta,
+.sub-header {
+    background-image: url('../imgs/bg.jpeg');
+    background-position: center;
+    background-size: cover;
+    animation:none;
+}
+
+.isub-header,
+.light-mode .sub-header {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+                    url('../imgs/bg.jpeg.jpg');
+}
+
+.itext-box{
+    font-size: 20px;
+    text-align: center;
+    padding-top: 200px;
+}
+
+.article {
+    padding: 20px;
+}
+
+.icontainer {
+    max-width: 900px; /* Increased width */
+    margin: 0 auto;
+    padding: 40px; /* Increased padding */
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.icontainer img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    width: 90%; /* Increased width of the image */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.icontainer ul {
+    padding-left: 20px; /* Add padding to the left of the list */
+}
+
+.icontainer li {
+    font-size: 18px; /* Set consistent font size */
+    line-height: 1.6;
+    margin-bottom: 15px; /* Adjusted margin bottom */
+    padding-left: 15px; /* Add padding to the left of each list item */
+}
+
+.icontainer p,
+.icontainer ul,
+.icontainer li,
+.icontainer h1,
+.icontainer h3 {
+    font-size: 18px; /* Set consistent font size */
+    line-height: 1.6;
+    margin-bottom: 20px; /* Increased margin bottom */
+}
+
+.icontainer h1,
+.icontainer h3 {
+    text-align: center;
+}
