@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, TextField, Button, Typography, Paper } from '@material-ui/core';
 import { auth } from '../firebase/firebase';
+import { Navigate } from 'react-router-dom'; // Import Navigate from react-router-dom
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,8 +34,19 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
 
-  const handleLogin = async () => {
+  useEffect(() => {
+    // Check if user is already logged in
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (user) {
+        setIsLoggedIn(true);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleLoginClick = async () => {
     // Validate input fields
     if (!email || !password) {
       setError('Please fill in all fields.');
@@ -45,6 +57,7 @@ const Login = () => {
       // Log in the user with email and password
       await auth.signInWithEmailAndPassword(email, password);
       console.log('User logged in:', email);
+      setIsLoggedIn(true); // Set login state to true
       // Clear input fields and error message
       setEmail('');
       setPassword('');
@@ -53,6 +66,11 @@ const Login = () => {
       setError(error.message);
     }
   };
+
+  // Redirect to AftrBody if user is already logged in
+  if (isLoggedIn) {
+    return <Navigate to="/aftrbody" />;
+  }
 
   return (
     <div className={classes.root}>
@@ -93,7 +111,7 @@ const Login = () => {
                 color="primary"
                 fullWidth
                 className={classes.button}
-                onClick={handleLogin}
+                onClick={handleLoginClick} // Call handleLoginClick function on button click
               >
                 Login
               </Button>

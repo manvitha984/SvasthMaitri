@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, TextField, Button, Typography, Paper, FormControlLabel, Checkbox } from '@material-ui/core';
 import { auth, database } from '../firebase/firebase';
+import { Navigate } from 'react-router-dom'; // Import Navigate
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,44 +50,30 @@ const Signup = () => {
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [redirectToLogin, setRedirectToLogin] = useState(false); // State to handle redirection
 
   const handleSignUp = async () => {
-    // Reset any previous error or success messages
     setError('');
     setSuccessMessage('');
 
-    // Your existing sign-up logic
+    // Validate form inputs
+    if (password !== confirmPassword) {
+      setError('Passwords do not match.');
+      return;
+    }
+
     try {
-      // Check if the email already exists
-      const existingUser = await database.ref('users').orderByChild('email').equalTo(email).once('value');
-      if (existingUser.exists()) {
-        // Update the existing user's data
-        existingUser.forEach((child) => {
-          const userId = child.key;
-          database.ref('users/' + userId).update({
-            username,
-            phoneNumber,
-            email,
-          });
-        });
-  
-        setSuccessMessage('User data updated successfully!');
-      } else {
-        // Create new user with email and password
-        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-        const user = userCredential.user;
-  
-        // Save additional user information to the database
-        await database.ref('users/' + user.uid).set({
-          username,
-          phoneNumber,
-          email,
-        });
-  
-        setSuccessMessage('Successfully signed up!');
-      }
-      
-      // Clear input fields
+      const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+      const user = userCredential.user;
+
+      // Write additional user information to the database
+      await database.ref('users/' + user.uid).set({
+        username,
+        phoneNumber,
+        email,
+      });
+
+      setSuccessMessage('Successfully signed up!');
       setEmail('');
       setUsername('');
       setPhoneNumber('');
@@ -94,12 +81,18 @@ const Signup = () => {
       setConfirmPassword('');
       setAgreeTerms(false);
 
-      // Log success message
       console.log('User signed up and data saved:', email, username, phoneNumber);
+
+      // Redirect to login page
+      setRedirectToLogin(true);
     } catch (error) {
       setError(error.message);
     }
   };
+
+  if (redirectToLogin) {
+    return <Navigate to="/login" />; // Redirect to login page after successful sign up
+  }
 
   return (
     <div className={classes.root}>

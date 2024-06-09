@@ -1,5 +1,6 @@
 import React from 'react';
 import './BfrBody.css';
+import { Link } from 'react-router-dom';
 
 function BfrBody() {
   return (
@@ -9,7 +10,7 @@ function BfrBody() {
             <div className="text-box">
                 <h2 style={{fontSize:'50px', marginLeft:'150px'}}>Building Bridges to Health</h2>
                 <p style={{fontSize:'30px', marginLeft:'150px'}}>Donate for a Brighter Future</p>
-                <a href="signup.php" className="hero-btn" style={{fontWeight:' bolder', fontSize: '25px' ,marginLeft:'150px'}}>Get Started</a>
+                <Link to="/signup" className="hero-btn" style={{fontWeight:' bolder', fontSize: '25px' ,marginLeft:'150px'}}>Get Started</Link>
             </div>
         </section>
 
